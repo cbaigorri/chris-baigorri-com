@@ -1,0 +1,46 @@
+{
+	"name": "chris-baigorri-com",
+	"version": "0.0.1",
+	"description": "Personal website of CHris Baigorri. Built on Docpad and Twitter Bootstrap.",
+	"homepage": "http://chrisbaigorr.com",
+	"keywords": [
+		"docpad-skeleton",
+		"docpad",
+		"website",
+		"bootstrap",
+		"twitter bootstrap"
+	],
+	"author": "Chris Baigorri <root@bchrisbaigorri.com> (http://chrisbaigorri.com)",
+	"maintainers": [
+		"Chris Baigorri <root@bchrisbaigorri.com> (http://chrisbaigorri.com)"
+	],
+	"contributors": [
+		"Chris Baigorri <root@bchrisbaigorri.com> (http://chrisbaigorri.com)"
+	],
+	"bugs": {
+		"url": "https://github.com/cbaigorri/chris-baigorri-com/issues"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/cbaigorri/chris-baigorri-com.git"
+	},
+	"engines" : {
+		"node": "0.8.x",
+		"npm": "1.1.x"
+	},
+	"dependencies": {
+		"docpad": "6.x",
+		"docpad-plugin-cleanurls": "2.x",
+		"docpad-plugin-coffeescript": "2.x",
+		"docpad-plugin-eco": "2.x",
+		"docpad-plugin-less": "2.x",
+		"docpad-plugin-marked": "2.x",
+		"docpad-plugin-partials": "2.x",
+		"docpad-plugin-stylus": "2.x",
+		"docpad-plugin-text": "2.x"
+	},
+	"devDependencies": {
+		"docpad-plugin-livereload": "2.x"
+	},
+	"main": "node_modules/docpad/bin/docpad-server"
+}
