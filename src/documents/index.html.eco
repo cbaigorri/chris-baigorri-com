@@ -1,0 +1,60 @@
+--- 
+layout: 'default'
+title: 'Home'
+dynamic: true
+---
+
+<%= @testMethod() %>
+
+<div class="hero-unit bordered drop-shadow curved curved-hz-1">
+	<div class="pos">
+		<h1>Hi! My name is Chris Baigorri.</h1>
+		<p>I have been a professionally employed web developer since 1999, working on award winning projects of all sizes; from globally recognized enterprise level to local basic one page sites. I am passionate about my craft and continue to hone my skills in HTML5, CSS3, JavaScript and PHP while learning and experimenting with new technologies in my spare time.</p>
+	</div>
+</div><!-- .hero-unit -->
+
+<div class="row">
+
+	<div class="span12">
+
+		<div id="masonryContainer" class="transitions-enabled masonry">
+
+			<div class="box col2 drop-shadow curved curved-hz-1">
+				<a href="#">
+					<div class="pos">
+						<h2>Docpad</h2>
+						<p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
+					</div>
+				</a>
+			</div>
+			
+			<div class="box col3 bordered drop-shadow curved curved-hz-1">
+				<a href="#">
+					<div class="pos">
+						<h2>Docpad</h2>
+						<p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
+					</div>
+				</a>
+			</div>
+			
+			<div class="box col2 bordered drop-shadow curved curved-hz-1">
+				<a href="#">
+					<div class="pos">
+						Main Street USA (with Gillian at Magic Kingdom) [pic] — http://path.com/p/2zSy1l
+					</div>
+				</a>
+			</div>
+
+			<div class="box col1 bordered drop-shadow curved curved-hz-1">
+				<a href="#">
+					<div class="pos">
+						This could be a link to a larger blog post.
+					</div>
+				</a>
+			</div>
+
+		</div><!-- #masonryContainer -->
+
+	</div><!-- .span12 -->
+
+</div><!-- .row -->

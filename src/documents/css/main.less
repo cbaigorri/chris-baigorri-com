@@ -1,0 +1,170 @@
+a, a:link {
+  cursor: pointer;
+}
+
+body {
+  padding-top: 60px;
+}
+
+
+/* Drop Shadow
+---------------------------------*/
+
+.drop-shadow {
+  position:relative;
+  @shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  .box-shadow(@shadow);
+}
+ 
+.drop-shadow:before,
+.drop-shadow:after {
+  content:"";
+  position:absolute;
+  z-index:-2;
+}
+
+/* Curved Drop Shadow
+---------------------------------*/
+
+.curved:before {
+  top:10px;
+  bottom:10px;
+  left:0;
+  right:50%;
+  @shadow: 0 0 15px rgba(0,0,0,0.6);
+  .box-shadow(@shadow);
+  @border: 10px 10px 10px ~"10px / 100px" 100px 100px 100px;
+  .border-radius(@border);
+}
+
+.curved-hz-1:before {
+  top:50%;
+  bottom:0;
+  left:10px;
+  right:10px;
+  @border: 100px 100px 100px ~"100px / 10px" 10px 10px 10px;
+  .border-radius(@border);
+}
+
+/* Border
+---------------------------------*/
+
+.bordered {
+  border-top:1px solid #F2F2F2;
+  border-bottom:1px solid #CCCCCC;
+  border-left: 1px solid #E0E0E0;
+  border-right: 1px solid #E0E0E0;  
+}
+
+
+/* Masonary Base
+---------------------------------*/
+
+.box {
+  font-size: 12px;
+  float: left;
+  .border-radius(5px);
+  position: relative;
+
+  a {
+    display: block;
+    .border-radius(5px);
+    #gradient > .vertical(#f9f9f9, #f0f0f0);
+    
+    &:hover {
+      #gradient > .vertical(#f9f9f9, #e0e0e0);
+      text-decoration: none;
+    }
+  }
+  
+  .pos {
+    padding:1em;
+  }
+  
+  h2 {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 200;
+    margin-top: 0px;
+    color:#454545;
+  }
+  
+  p {
+    margin-bottom: 0px;
+    color:#787878;
+  }
+}
+
+/* Masonary Fluid
+---------------------------------*/
+
+#masonryContainer  {
+  /* right margin value is 0.1% less than calculated,
+  to allow for rounding errors in Firefox */
+  .box {
+    margin: 5px 0.9% 25px 1%;
+    width:24%;
+  }
+
+  .col1 { width: 16%; }
+  .col2 { width: 36%; }
+  .col3 { width: 56%; } 
+}
+
+
+/* Masonary Transitions
+---------------------------------*/
+
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .box {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .box {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+      -ms-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
+}
+
+/* Footer
+---------------------------------*/
+
+footer {
+  font-size: 11px;
+  margin-bottom:25px;
+
+  .container {
+    border-top: 1px solid #E5E5E5;  
+    border-bottom: 1px solid #E5E5E5;  
+  }
+  
+  p {
+    margin:0px;
+    line-height: 30px;
+  }
+
+}

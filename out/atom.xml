@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Chris Baigorri</title>
+    <link href="http://chrisbaigorri.com/atom.xml" rel="self"/>
+    <link href="http://chrisbaigorri.com"/>
+    <updated>2012-11-28T06:25:38.808Z</updated>
+    <id>http://chrisbaigorri.com</id>
+    <author>
+        <name>Chris Baigorri</name>
+        <email>root@chrisbaigorri.com</email>
+    </author>
+
+    
+        <entry>
+            <title>This is a Blog Post</title>
+            <link href="http://chrisbaigorri.com//posts/hello"/>
+            <updated>2012-11-05T19:55:11.000Z</updated>
+            <id>http://chrisbaigorri.com//posts/hello</id>
+            <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+
+    &lt;title&gt;This is a Blog Post | Chris Baigorri&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Chris Baigorri is a front end devloper living in Toronto, Canada&quot; /&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;interface, developer, front-end, html5, css3, javascript, node, website&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Chris Baigorri&quot; /&gt;
+
+    &lt;!-- Output DocPad produced meta elements --&gt;
+    &lt;meta http-equiv=&quot;X-Powered-By&quot; content=&quot;DocPad&quot;/&gt;
+
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+
+    &lt;!-- DocPad Meta Information --&gt;
+    &lt;meta http-equiv=&quot;X-Powered-By&quot; content=&quot;DocPad&quot;/&gt;
+
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;ico/favicon.ico&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;ico/apple-touch-icon-144-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;ico/apple-touch-icon-114-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;ico/apple-touch-icon-72-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;ico/apple-touch-icon-57-precomposed.png&quot;&gt;
+
+    &lt;script  src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;&lt;script &gt;var socket = io.connect('/docpad-live-reload');
+socket.on('regenerated',function(){
+	document.location.reload();
+});&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/libs/modernizr.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/responsive.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class=&quot;navbar navbar-fixed-top&quot;&gt;
+        &lt;div class=&quot;navbar-inner&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;a class=&quot;brand&quot; href=&quot;/&quot;&gt;
+                    &lt;span&gt;Chris Baigorri&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class=&quot;nav&quot;&gt;
+                    
+                        &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/pages/about&quot; class=&quot;&quot;&gt;
+                            &lt;a href=&quot;/pages/about&quot; property=&quot;dc:title&quot;&gt;
+                                &lt;span&gt;About&lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    
+                        &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/pages/posts&quot; class=&quot;&quot;&gt;
+                            &lt;a href=&quot;/pages/posts&quot; property=&quot;dc:title&quot;&gt;
+                                &lt;span&gt;Posts&lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;section id=&quot;content&quot; class=&quot;content&quot;&gt;
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    &lt;h1&gt;This is a Blog Post&lt;/h1&gt;
+    &lt;div class=&quot;post-content&quot;&gt;&lt;p&gt;This is a &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+    
+&lt;/footer&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;&lt;!-- &gt;container --&gt;
+
+    &lt;footer&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;span6&quot;&gt;
+                    &lt;p&gt;&amp;copy; Chris Baigorri 2012&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;span6&quot;&gt;
+                    &lt;p class=&quot;pull-right&quot;&gt;This website was last updated at 2012-11-28T06:25:38.808Z&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script  src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;&lt;script &gt;var socket = io.connect('/docpad-live-reload');
+socket.on('regenerated',function(){
+	document.location.reload();
+});&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/libs/jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/plugins.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+        </entry>
+    
+</feed>

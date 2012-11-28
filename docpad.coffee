@@ -1,3 +1,6 @@
+# nTwitter
+twitter = require 'ntwitter'
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -39,7 +42,6 @@ docpadConfig = {
 			email: "root@chrisbaigorri.com"
 
 
-
 		# -----------------------------
 		# Helper Functions
 
@@ -63,6 +65,24 @@ docpadConfig = {
 		getPreparedKeywords: ->
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
+
+
+		# -----------------------------
+		# Twitter Functions
+
+		#
+		testMethod: ->
+			twit = new twitter
+			  consumer_key: 'ddIhXIe6D70EsqYyVLUBAQ'
+			  consumer_secret: 'HaNqmTtP7AdXv2XQqmxfXBu6qm0g2o2vWMqIAzPPKk'
+			  access_token_key: '14239125-hMrrsDPRPV8GwxvuVtzkcfKVsYurwEEkCQqNoKpAE'
+			  access_token_secret: 'nyLflflOUjXTShWPfwyOMQgifUhAokeaFP8ND47nXvw'
+
+			twit
+				.getUserTimeline '', (err, data)->
+          if err then console.log err
+          data
+
 
 
 	# =================================
@@ -111,3 +131,12 @@ docpadConfig = {
 
 # Export our DocPad Configuration
 module.exports = docpadConfig
+
+
+#module.exports = testMethod
+#module.exports = customConfig
+
+
+
+
+

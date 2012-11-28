@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  Chris Baigorri
+  Site:chrisbaigorri.com
+  Twitter:@cbaigorri
+  Location:Toronto, Canada
 
 /* THANKS */
   Names (& URL):
