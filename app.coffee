@@ -1,5 +1,7 @@
 express = require 'express'
 http = require 'http'
+twittercb = require __dirname + '/lib/twittercb'
+
 app = express()
 server = http.createServer(app).listen 9779
 
@@ -38,9 +40,20 @@ docpadInstance = require('docpad').createInstance docpadInstanceConfiguration, (
     if err then console.log err.stack
   @
 
-# router
+# -----------------------------
+# Router Functions
+
+# Homepage
 app.get '/', (req, res, next) ->
   req.templateData =
     customVar = 'some custom variable'
   document = docpadInstance.getFile relativePath:'index.html.eco'
-  docpadInstance.serveDocument {document, req, res, next} 
+  docpadInstance.serveDocument {document, req, res, next}
+
+# Tweets
+app.get '/tweets', (req, res, next) ->
+  twittercb.getTweets (data) ->
+    res.json data
+
+
+

@@ -4,7 +4,7 @@ title: 'Home'
 dynamic: true
 ---
 
-<%= @testMethod() %>
+<%  %>
 
 <div class="hero-unit bordered drop-shadow curved curved-hz-1">
 	<div class="pos">
