@@ -1,6 +1,7 @@
 express = require 'express'
 http = require 'http'
 twittercb = require __dirname + '/lib/twittercb'
+cronjobs = require __dirname + '/lib/cronjobs'
 
 app = express()
 server = http.createServer(app).listen 9779
@@ -44,15 +45,12 @@ docpadInstance = require('docpad').createInstance docpadInstanceConfiguration, (
 # Router Functions
 
 # Homepage
+# TODO: add tweets.json to template data
 app.get '/', (req, res, next) ->
   req.templateData =
     customVar = 'some custom variable'
   document = docpadInstance.getFile relativePath:'index.html.eco'
   docpadInstance.serveDocument {document, req, res, next}
 
-# Tweets
-app.get '/tweets', (req, res, next) ->
-  twittercb.getTweets (data) ->
-    res.json data
 
 

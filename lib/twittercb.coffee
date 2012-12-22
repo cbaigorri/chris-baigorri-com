@@ -12,7 +12,7 @@ getMyTweets = (callback) ->
     access_token_secret: 'nyLflflOUjXTShWPfwyOMQgifUhAokeaFP8ND47nXvw'
 
   twit.getUserTimeline '', (err, data)->
-    if err then console.log err
-    callback data
+    if err then callback err, null
+    callback null, data
 
 exports.getTweets = getMyTweets
