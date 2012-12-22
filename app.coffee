@@ -56,4 +56,3 @@ app.get '/tweets', (req, res, next) ->
     res.json data
 
 
-
