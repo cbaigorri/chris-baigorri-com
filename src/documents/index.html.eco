@@ -4,8 +4,6 @@ title: 'Home'
 dynamic: true
 ---
 
-<%  %>
-
 <div class="hero-unit bordered drop-shadow curved curved-hz-1">
 	<div class="pos">
 		<h1>Hi! My name is Chris Baigorri.</h1>
@@ -17,44 +15,55 @@ dynamic: true
 
 	<div class="span12">
 
-		<div id="masonryContainer" class="transitions-enabled masonry">
+		<div id="isotopeContainer" class="transitions-enabled masonry">
 
-			<div class="box col2 drop-shadow curved curved-hz-1">
-				<a href="#">
+			<% for val, idx in @tweetData: %>
+
+			<div class="box tweet" data-time="<%= @machineTime val.created_at %>">
+				<div class="box-inner bordered drop-shadow curved curved-hz-1">
 					<div class="pos">
-						<h2>Docpad</h2>
-						<p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
+						<p><%- @atify(@linkify val.text) %></p>
+						<span class="created-at"><%= @relativeTime val.created_at %></span>
 					</div>
-				</a>
-			</div>
-			
-			<div class="box col3 bordered drop-shadow curved curved-hz-1">
-				<a href="#">
-					<div class="pos">
-						<h2>Docpad</h2>
-						<p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
-					</div>
-				</a>
-			</div>
-			
-			<div class="box col2 bordered drop-shadow curved curved-hz-1">
-				<a href="#">
-					<div class="pos">
-						Main Street USA (with Gillian at Magic Kingdom) [pic] — http://path.com/p/2zSy1l
-					</div>
-				</a>
+				</div>
 			</div>
 
-			<div class="box col1 bordered drop-shadow curved curved-hz-1">
-				<a href="#">
-					<div class="pos">
-						This could be a link to a larger blog post.
-					</div>
-				</a>
+			<% end %>
+
+			<% for document in @getCollection('posts').toJSON(): %>
+		  
+		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
+				<div class="box-inner bordered drop-shadow curved curved-hz-1">
+					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal">
+						<div class="pos">
+							<h2><span><%= document.title %></span></h2>
+							<p><%- document.excerpt %></p>
+						</div>
+					</a>
+				</div>
 			</div>
+			
+			<% end %>
+
+			<% for document in @getCollection('pages').toJSON(): %>
+		  
+		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
+				<div class="box-inner bordered drop-shadow curved curved-hz-1">
+					<a href="<%= document.permalink %>" data-target="#myModal" data-toggle="modal">
+						<div class="pos">
+							<h2><span><%= document.title %></span></h2>
+							<p><%- document.excerpt %></p>
+						</div>
+					</a>
+				</div>
+			</div>
+			
+			<% end %>
 
 		</div><!-- #masonryContainer -->
 
 	</div><!-- .span12 -->
 
 </div><!-- .row -->
+
+

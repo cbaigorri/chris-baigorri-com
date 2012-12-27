@@ -36,13 +36,16 @@
 					<span>Chris Baigorri</span>
 				</a>
 				<ul class="nav">
-					<% for document in @getCollection('pages').toJSON(): %>
-						<li typeof="sioc:Page" about="<%= document.url %>" class="<%= 'active'  if @document.url is document.url %>">
-							<a href="<%= document.url %>" property="dc:title">
-								<span><%= document.title %></span>
-							</a>
-						</li>
-					<% end %>
+					<li class="">
+						<a href="#" data-filter=".post">
+							<span>Posts</span>
+						</a>
+					</li>
+					<li class="">
+						<a href="#" data-filter=".tweet">
+							<span>Tweets</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -67,7 +70,17 @@
 		</div>
 	</footer>
 
+	<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Modal header</h3>
+		</div>
+		<div class="modal-body">
+	    <!-- content will be loaded here -->
+	  </div>
+	</div>
+
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/plugins.js","/js/script.js"]).toHTML() %>
+	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/plugins.js","/js/libs/bootstrap.min.js","/js/script.js"]).toHTML() %>
 </body>
 </html>

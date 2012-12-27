@@ -32,6 +32,7 @@
 		"coffee-script": "latest",
 		"express": "3.x",
 		"ntwitter": "0.5.x",
+		"socket.io": "0.9.x",
 		"docpad": "6.x",
 		"docpad-plugin-cleanurls": "2.x",
 		"docpad-plugin-coffeescript": "2.x",

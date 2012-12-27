@@ -1,0 +1,19 @@
+---
+title: This is a Blog Post
+layout: post
+permalink: blog/hello-world
+tags: ['intro','post']
+date: 'Thu Nov 22 00:00:00 +0000 2012'
+excerpt: 'This is a post excerpt it could be quite long introducing a post.'
+---
+
+<%  %>
+
+<div class="row">
+
+  <div class="span12">
+
+  </div>
+
+</div>
+This is a **blog post**

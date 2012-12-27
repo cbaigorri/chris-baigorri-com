@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: barebones
 ---
 
 <article id="post" class="post">
@@ -21,3 +21,4 @@ layout: default
 	</section>
 	<% end %>
 </footer>
+

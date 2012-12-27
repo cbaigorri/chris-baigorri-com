@@ -3,7 +3,7 @@
     <title>Chris Baigorri</title>
     <link href="http://chrisbaigorri.com/atom.xml" rel="self"/>
     <link href="http://chrisbaigorri.com"/>
-    <updated>2012-12-22T07:26:17.172Z</updated>
+    <updated>2012-12-26T19:14:42.300Z</updated>
     <id>http://chrisbaigorri.com</id>
     <author>
         <name>Chris Baigorri</name>
@@ -13,9 +13,9 @@
     
         <entry>
             <title>This is a Blog Post</title>
-            <link href="http://chrisbaigorri.com//posts/hello"/>
-            <updated>2012-11-05T19:55:11.000Z</updated>
-            <id>http://chrisbaigorri.com//posts/hello</id>
+            <link href="http://chrisbaigorri.com//posts/hello-world"/>
+            <updated>2012-11-22T00:00:00.000Z</updated>
+            <id>http://chrisbaigorri.com//posts/hello-world</id>
             <content type="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -33,6 +33,111 @@
 
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
 
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;ico/favicon.ico&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;ico/apple-touch-icon-144-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;ico/apple-touch-icon-114-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;ico/apple-touch-icon-72-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;ico/apple-touch-icon-57-precomposed.png&quot;&gt;
+
+    &lt;script  src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;&lt;script &gt;var socket = io.connect('/docpad-live-reload');
+socket.on('regenerated',function(){
+	document.location.reload();
+});&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/libs/modernizr.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/responsive.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/shCore.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/shThemeDefault.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body class=&quot;barebones&quot;&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;section id=&quot;content&quot; class=&quot;content&quot;&gt;
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    &lt;h1&gt;This is a Blog Post&lt;/h1&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+
+  &lt;div class=&quot;span12&quot;&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+This is a **blog post**&lt;/div&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+    
+&lt;/footer&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;&lt;!-- &gt;container --&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script  src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;&lt;script &gt;var socket = io.connect('/docpad-live-reload');
+socket.on('regenerated',function(){
+	document.location.reload();
+});&lt;/script&gt;&lt;script  src=&quot;/js/libs/jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/libs/shCore.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/libs/shAutoloader.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/plugins.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/script.js&quot;&gt;&lt;/script&gt;
+
+
+    &lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot;&gt;
+    function path() {
+      var args = arguments,
+          result = [];
+           
+      for(var i = 0; i &lt; args.length; i++) {
+          result.push(args[i].replace('@', '/js/libs/brushes/'));
+      }
+           
+      return result
+    }
+    SyntaxHighlighter.autoloader.apply(null, path(
+      'bash shell             @shBrushBash.js',
+      'cpp c                  @shBrushCpp.js',
+      'c# c-sharp csharp      @shBrushCSharp.js',
+      'css                    @shBrushCss.js',
+      'diff patch pas         @shBrushDiff.js',
+      'groovy                 @shBrushGroovy.js',
+      'java                   @shBrushJava.js',
+      'jfx javafx             @shBrushJavaFX.js',
+      'js jscript javascript  @shBrushJScript.js',
+      'php                    @shBrushPhp.js',
+      'text plain             @shBrushPlain.js',
+      'py python              @shBrushPython.js',
+      'ruby rails ror rb      @shBrushRuby.js',
+      'sass scss              @shBrushSass.js',
+      'scala                  @shBrushScala.js',
+      'sql                    @shBrushSql.js',
+      'xml xhtml xslt html    @shBrushXml.js'
+    ));
+    SyntaxHighlighter.all();
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    &lt;/script&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <title>Write .less .css</title>
+            <link href="http://chrisbaigorri.com//posts/write-less-css"/>
+            <updated>2011-09-22T00:00:00.000Z</updated>
+            <id>http://chrisbaigorri.com//posts/write-less-css</id>
+            <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+
+    &lt;title&gt;Write .less .css | Chris Baigorri&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Chris Baigorri is a front end devloper living in Toronto, Canada&quot; /&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;interface, developer, front-end, html5, css3, javascript, node, website&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Chris Baigorri&quot; /&gt;
+
+    &lt;!-- Output DocPad produced meta elements --&gt;
+    &lt;meta http-equiv=&quot;X-Powered-By&quot; content=&quot;DocPad&quot;/&gt;
+
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
 
   &lt;link rel=&quot;shortcut icon&quot; href=&quot;ico/favicon.ico&quot;&gt;
   &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;ico/apple-touch-icon-144-precomposed.png&quot;&gt;
@@ -46,41 +151,176 @@ socket.on('regenerated',function(){
 });&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/libs/modernizr.js&quot;&gt;&lt;/script&gt;
 
     &lt;!-- Styles --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/responsive.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/responsive.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/shCore.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/shThemeDefault.css&quot; /&gt;
 &lt;/head&gt;
-&lt;body&gt;
-
-    &lt;div class=&quot;navbar navbar-fixed-top&quot;&gt;
-        &lt;div class=&quot;navbar-inner&quot;&gt;
-            &lt;div class=&quot;container&quot;&gt;
-                &lt;a class=&quot;brand&quot; href=&quot;/&quot;&gt;
-                    &lt;span&gt;Chris Baigorri&lt;/span&gt;
-                &lt;/a&gt;
-                &lt;ul class=&quot;nav&quot;&gt;
-                    
-                        &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/pages/about&quot; class=&quot;&quot;&gt;
-                            &lt;a href=&quot;/pages/about&quot; property=&quot;dc:title&quot;&gt;
-                                &lt;span&gt;About&lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/li&gt;
-                    
-                        &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/pages/posts&quot; class=&quot;&quot;&gt;
-                            &lt;a href=&quot;/pages/posts&quot; property=&quot;dc:title&quot;&gt;
-                                &lt;span&gt;Posts&lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/li&gt;
-                    
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+&lt;body class=&quot;barebones&quot;&gt;
 
     &lt;div class=&quot;container&quot;&gt;
         &lt;section id=&quot;content&quot; class=&quot;content&quot;&gt;
             &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
-    &lt;h1&gt;This is a Blog Post&lt;/h1&gt;
-    &lt;div class=&quot;post-content&quot;&gt;&lt;p&gt;This is a &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
+    &lt;h1&gt;Write .less .css&lt;/h1&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+
+&lt;article&gt;
+
+  &lt;p&gt;We’ve been using &lt;a target=&quot;_blank&quot; href=&quot;http://lesscss.org&quot;&gt;LESS&lt;/a&gt;, a dynamic stylesheet language for a while now and wanted to share our thoughts and a few tips.&lt;/p&gt;
+
+  &lt;p&gt;We like tools that make our jobs easier as developers. LESS looks just like POCSS (plain old css), so it’s easy to learn, but it adds some extra functionality. In this article we’ll go over a few of the language features and show some code samples. For a full feature walkthrough please visit &lt;a href=&quot;http://www.lesscss.org&quot; target=&quot;_blank&quot;&gt;lesscss.org&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;h3&gt;Variables:&lt;/h3&gt;
+  
+  &lt;p&gt;Pretty self explanatory, set a variable, use it later.&lt;/p&gt;
+  
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  @base-color: #444;  
+  
+  body {  
+    color: @base-color;  
+  } 
+  &lt;/pre&gt;
+
+  &lt;h3&gt;Mixins:&lt;/h3&gt;
+  
+  &lt;p&gt;Mixins can be used to embed multiple properties into another class. Mixins can accept parameters making them look very much like functions. Here is an example where you can avoid writing vendor prefixes to achieve rounded corners.&lt;/p&gt;
+  
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  .rounded-corners(@radius: 8px) {  
+    -webkit-border-radius: @radius;  
+    -moz-border-radius: @radius;  
+    border-radius: @radius;  
+  }  
+    
+  .content {  
+    .rounded-corners(12px);  
+    background: green;  
+  }
+  &lt;/pre&gt;
+
+  &lt;p&gt;The @arguments variable holds all of the arguments passed into the mixin. Less typing is good.&lt;/p&gt;
+
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  .rounded-corners-individual(@tl:8px, @tr:8px, @br:8px, @bl:8px) {  
+    -webkit-border-radius: @arguments;  
+    -moz-border-radius: @arguments;  
+    border-radius: @arguments;  
+  }
+  &lt;/pre&gt;
+
+  &lt;h3&gt;Nested Rules:&lt;/h3&gt;
+
+  &lt;p&gt;This is a much neater way to write cascading styles and it’s easy to quickly understand the inheritance at a glance. Aside from being much shorter to write, it also reduces the likelihood of overwriting your teammate’s styles.&lt;/p&gt;
+
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  ul {  
+    color:#000;  
+    li {  
+      a {  
+        text-decoration:none;   
+        &amp;:visited {  
+          color:#333;  
+        }  
+        &amp;:hover {  
+          text-decoration:underline;  
+        }  
+      }  
+    }  
+  }
+  &lt;/pre&gt;
+  
+  &lt;h3&gt;Code Samples:&lt;/h3&gt;
+
+  &lt;p&gt;Here are a few snippets we’ve found useful so far.&lt;/p&gt;
+
+  &lt;h4&gt;Grids&lt;/h4&gt;
+
+  &lt;p&gt;This was inspired by &lt;a target=&quot;_blank&quot; href=&quot;http://lessframework.com/&quot;&gt;Less Framework 4&lt;/a&gt; and &lt;a target=&quot;_blank&quot; href=&quot;http://semantic.gs/&quot;&gt;The Semantic Grid System&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  @column-width: 68; 
+  @gutter-width: 24;  
+  @columns: 10;  
+    
+  .column(@x,@gutter:@gutter-width) {  
+    float: left;  
+    overflow: hidden;  
+    width: (((@gutter-width+@column-width)*@x)-@gutter-width);  
+    margin: 0 (@gutter * 1px) 0 0;  
+  }  
+    
+  article {  
+    .column(6);  
+  }  
+    
+  sidebar {  
+    .column(4, 0);  
+  }
+  &lt;/pre&gt;
+  
+  &lt;h4&gt;Fonts&lt;/h4&gt;
+
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  .font-sans-serif (@weight: normal, @size: 16px, @height: 24px) {  
+    font: @weight @size e('/') @height Helvetica,Arial,sans-serif;  
+  }  
+      
+  body {  
+    .font-sans-serif();  
+  }
+  &lt;/pre&gt;
+
+  &lt;h4&gt;Simple CSS Transitions&lt;/h4&gt;
+
+  &lt;pre name=&quot;code&quot; class=&quot;brush:css&quot;&gt;
+  .transition-simple (@type:all, @duration:1000ms, @tween:linear) {  
+    -webkit-transition: @type @duration @tween;  
+    -moz-transition: @type @duration @tween;  
+    -o-transition: @type @duration @tween;  
+    -ms-transition: @type @duration @tween;  
+    transition: @type @duration @tween;  
+  }  
+    
+  .overlay {  
+    opacity:1;  
+    .transition-simple (opacity, 250ms, linear);  
+  }  
+    
+  .overlay:hover {  
+    opacity:0.5;  
+  }
+  &lt;/pre&gt;
+
+  &lt;h3&gt;Production Notes:&lt;/h3&gt;
+
+  &lt;p&gt;Discussing production strategies is well beyond the scope of this article. We wouldn’t recommend client-side usage of .less in a production environment. No worries though, there are several options for converting .less files to .css files for production. Here are a few that we’ve come across:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://leafo.net/lessphp/&quot;&gt;lessphp&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://github.com/znerd/lessc2java&quot;&gt;less ANT task&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://incident57.com/less/&quot;&gt;Less.app&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h3&gt;Conclusion:&lt;/h3&gt;
+
+  &lt;p&gt;Working with LESS has been great so far. It’s a very natural way to think of stylesheets and was easy to integrate into our development process. One thing we would welcome in future versions is directives such as conditional statements, and loops which can currently be found in &lt;a target=&quot;_blank&quot; href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;What are your thoughts on Less?&lt;/p&gt;
+
+  &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'chrisbaigorri'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  &lt;/script&gt;
+  &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+    
+
+&lt;/article&gt;&lt;/div&gt;
 &lt;/article&gt;
 
 &lt;footer&gt;
@@ -89,24 +329,47 @@ socket.on('regenerated',function(){
         &lt;/section&gt;
     &lt;/div&gt;&lt;!-- &gt;container --&gt;
 
-    &lt;footer&gt;
-        &lt;div class=&quot;container&quot;&gt;
-            &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;span6&quot;&gt;
-                    &lt;p&gt;&amp;copy; Chris Baigorri 2012&lt;/p&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;span6&quot;&gt;
-                    &lt;p class=&quot;pull-right&quot;&gt;This website was last updated at 2012-12-22T07:26:17.172Z&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/footer&gt;
-
     &lt;!-- Scripts --&gt;
     &lt;script  src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;&lt;script &gt;var socket = io.connect('/docpad-live-reload');
 socket.on('regenerated',function(){
 	document.location.reload();
-});&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/libs/jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/plugins.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/script.js&quot;&gt;&lt;/script&gt;
+});&lt;/script&gt;&lt;script  src=&quot;/js/libs/jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/libs/shCore.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/libs/shAutoloader.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/plugins.js&quot;&gt;&lt;/script&gt;&lt;script  src=&quot;/js/script.js&quot;&gt;&lt;/script&gt;
+
+
+    &lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot;&gt;
+    function path() {
+      var args = arguments,
+          result = [];
+           
+      for(var i = 0; i &lt; args.length; i++) {
+          result.push(args[i].replace('@', '/js/libs/brushes/'));
+      }
+           
+      return result
+    }
+    SyntaxHighlighter.autoloader.apply(null, path(
+      'bash shell             @shBrushBash.js',
+      'cpp c                  @shBrushCpp.js',
+      'c# c-sharp csharp      @shBrushCSharp.js',
+      'css                    @shBrushCss.js',
+      'diff patch pas         @shBrushDiff.js',
+      'groovy                 @shBrushGroovy.js',
+      'java                   @shBrushJava.js',
+      'jfx javafx             @shBrushJavaFX.js',
+      'js jscript javascript  @shBrushJScript.js',
+      'php                    @shBrushPhp.js',
+      'text plain             @shBrushPlain.js',
+      'py python              @shBrushPython.js',
+      'ruby rails ror rb      @shBrushRuby.js',
+      'sass scss              @shBrushSass.js',
+      'scala                  @shBrushScala.js',
+      'sql                    @shBrushSql.js',
+      'xml xhtml xslt html    @shBrushXml.js'
+    ));
+    SyntaxHighlighter.all();
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    &lt;/script&gt;
+    
 &lt;/body&gt;
 &lt;/html&gt;
 </content>

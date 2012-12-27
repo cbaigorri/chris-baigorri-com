@@ -1,0 +1,172 @@
+---
+title: Write .less .css
+layout: post
+permalink: /blog/write-less-css
+tags: ['less','post']
+date: 'Thu Sep 22 00:00:00 +0000 2011'
+excerpt: "We've been using LESS, a dynamic stylesheet language for a while now and wanted to share our thoughts and a few tips."
+---
+
+<%  %>
+
+<article>
+
+  <p>We’ve been using <a target="_blank" href="http://lesscss.org">LESS</a>, a dynamic stylesheet language for a while now and wanted to share our thoughts and a few tips.</p>
+
+  <p>We like tools that make our jobs easier as developers. LESS looks just like POCSS (plain old css), so it’s easy to learn, but it adds some extra functionality. In this article we’ll go over a few of the language features and show some code samples. For a full feature walkthrough please visit <a href="http://www.lesscss.org" target="_blank">lesscss.org</a>.</p>
+
+  <h3>Variables:</h3>
+  
+  <p>Pretty self explanatory, set a variable, use it later.</p>
+  
+  <pre name="code" class="brush:css">
+  @base-color: #444;  
+  
+  body {  
+    color: @base-color;  
+  } 
+  </pre>
+
+  <h3>Mixins:</h3>
+  
+  <p>Mixins can be used to embed multiple properties into another class. Mixins can accept parameters making them look very much like functions. Here is an example where you can avoid writing vendor prefixes to achieve rounded corners.</p>
+  
+  <pre name="code" class="brush:css">
+  .rounded-corners(@radius: 8px) {  
+    -webkit-border-radius: @radius;  
+    -moz-border-radius: @radius;  
+    border-radius: @radius;  
+  }  
+    
+  .content {  
+    .rounded-corners(12px);  
+    background: green;  
+  }
+  </pre>
+
+  <p>The @arguments variable holds all of the arguments passed into the mixin. Less typing is good.</p>
+
+  <pre name="code" class="brush:css">
+  .rounded-corners-individual(@tl:8px, @tr:8px, @br:8px, @bl:8px) {  
+    -webkit-border-radius: @arguments;  
+    -moz-border-radius: @arguments;  
+    border-radius: @arguments;  
+  }
+  </pre>
+
+  <h3>Nested Rules:</h3>
+
+  <p>This is a much neater way to write cascading styles and it’s easy to quickly understand the inheritance at a glance. Aside from being much shorter to write, it also reduces the likelihood of overwriting your teammate’s styles.</p>
+
+  <pre name="code" class="brush:css">
+  ul {  
+    color:#000;  
+    li {  
+      a {  
+        text-decoration:none;   
+        &:visited {  
+          color:#333;  
+        }  
+        &:hover {  
+          text-decoration:underline;  
+        }  
+      }  
+    }  
+  }
+  </pre>
+  
+  <h3>Code Samples:</h3>
+
+  <p>Here are a few snippets we’ve found useful so far.</p>
+
+  <h4>Grids</h4>
+
+  <p>This was inspired by <a target="_blank" href="http://lessframework.com/">Less Framework 4</a> and <a target="_blank" href="http://semantic.gs/">The Semantic Grid System</a>.</p>
+
+  <pre name="code" class="brush:css">
+  @column-width: 68; 
+  @gutter-width: 24;  
+  @columns: 10;  
+    
+  .column(@x,@gutter:@gutter-width) {  
+    float: left;  
+    overflow: hidden;  
+    width: (((@gutter-width+@column-width)*@x)-@gutter-width);  
+    margin: 0 (@gutter * 1px) 0 0;  
+  }  
+    
+  article {  
+    .column(6);  
+  }  
+    
+  sidebar {  
+    .column(4, 0);  
+  }
+  </pre>
+  
+  <h4>Fonts</h4>
+
+  <pre name="code" class="brush:css">
+  .font-sans-serif (@weight: normal, @size: 16px, @height: 24px) {  
+    font: @weight @size e('/') @height Helvetica,Arial,sans-serif;  
+  }  
+      
+  body {  
+    .font-sans-serif();  
+  }
+  </pre>
+
+  <h4>Simple CSS Transitions</h4>
+
+  <pre name="code" class="brush:css">
+  .transition-simple (@type:all, @duration:1000ms, @tween:linear) {  
+    -webkit-transition: @type @duration @tween;  
+    -moz-transition: @type @duration @tween;  
+    -o-transition: @type @duration @tween;  
+    -ms-transition: @type @duration @tween;  
+    transition: @type @duration @tween;  
+  }  
+    
+  .overlay {  
+    opacity:1;  
+    .transition-simple (opacity, 250ms, linear);  
+  }  
+    
+  .overlay:hover {  
+    opacity:0.5;  
+  }
+  </pre>
+
+  <h3>Production Notes:</h3>
+
+  <p>Discussing production strategies is well beyond the scope of this article. We wouldn’t recommend client-side usage of .less in a production environment. No worries though, there are several options for converting .less files to .css files for production. Here are a few that we’ve come across:</p>
+
+  <ul>
+    <li><a target="_blank" href="http://leafo.net/lessphp/">lessphp</a></li>
+    <li><a target="_blank" href="https://github.com/znerd/lessc2java">less ANT task</a></li>
+    <li><a target="_blank" href="http://incident57.com/less/">Less.app</a></li>
+  </ul>
+
+  <h3>Conclusion:</h3>
+
+  <p>Working with LESS has been great so far. It’s a very natural way to think of stylesheets and was easy to integrate into our development process. One thing we would welcome in future versions is directives such as conditional statements, and loops which can currently be found in <a target="_blank" href="http://sass-lang.com/">Sass</a>.</p>
+
+  <p>What are your thoughts on Less?</p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'chrisbaigorri'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+</article>
+

@@ -4,6 +4,23 @@ a, a:link {
 
 body {
   padding-top: 60px;
+
+  &.barebones {
+    padding-top: 0;
+  }
+
+  &.modal-active {
+    overflow: hidden;
+  }
+}
+
+/* Modals
+---------------------------------*/
+
+.modal {
+  top: 0;
+  width: 90%;
+  margin-left: -45%;
 }
 
 
@@ -65,14 +82,19 @@ body {
   float: left;
   .border-radius(5px);
   position: relative;
-
-  a {
-    display: block;
+  
+  .box-inner {
     .border-radius(5px);
+    display: block;
     #gradient > .vertical(#f9f9f9, #f0f0f0);
-    
+
     &:hover {
       #gradient > .vertical(#f9f9f9, #e0e0e0);
+    }
+  }
+
+  a {
+    &:hover {
       text-decoration: none;
     }
   }
@@ -98,12 +120,12 @@ body {
 /* Masonary Fluid
 ---------------------------------*/
 
-#masonryContainer  {
+#isotopeContainer  {
   /* right margin value is 0.1% less than calculated,
   to allow for rounding errors in Firefox */
   .box {
-    margin: 5px 0.9% 25px 1%;
-    width:24%;
+    margin: 5px 0.9% 15px 1%;
+    width:16%;
   }
 
   .col1 { width: 16%; }
@@ -112,19 +134,32 @@ body {
 }
 
 
-/* Masonary Transitions
+/* Isotope Transitions
 ---------------------------------*/
 
-.transitions-enabled.masonry,
-.transitions-enabled.masonry .box {
-  -webkit-transition-duration: 0.7s;
-     -moz-transition-duration: 0.7s;
-      -ms-transition-duration: 0.7s;
-       -o-transition-duration: 0.7s;
-          transition-duration: 0.7s;
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
 }
 
-.transitions-enabled.masonry {
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
   -webkit-transition-property: height, width;
      -moz-transition-property: height, width;
       -ms-transition-property: height, width;
@@ -132,22 +167,24 @@ body {
           transition-property: height, width;
 }
 
-.transitions-enabled.masonry  .box {
-  -webkit-transition-property: left, right, top;
-     -moz-transition-property: left, right, top;
-      -ms-transition-property: left, right, top;
-       -o-transition-property: left, right, top;
-          transition-property: left, right, top;
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
 }
 
+/**** disabling Isotope CSS3 transitions ****/
 
-/* disable transitions on container */
-.transitions-enabled.infinite-scroll.masonry {
-  -webkit-transition-property: none;
-     -moz-transition-property: none;
-      -ms-transition-property: none;
-       -o-transition-property: none;
-          transition-property: none;
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
 }
 
 /* Footer
@@ -167,4 +204,8 @@ footer {
     line-height: 30px;
   }
 
+}
+
+.syntaxhighlighter table td.code .container:before, .container:after {
+  content: none;
 }
