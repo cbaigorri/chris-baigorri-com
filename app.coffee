@@ -47,7 +47,6 @@ docpadInstance = require('docpad').createInstance docpadInstanceConfiguration, (
 # Router Functions
 
 # Homepage
-# TODO: add tweets.json to template data
 app.get '/', (req, res, next) ->
   jsonContents = fs.readFileSync 'out/tweets.json', 'utf8'
   tweets = JSON.parse jsonContents

@@ -49,7 +49,7 @@ dynamic: true
 		  
 		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
 				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<a href="<%= document.permalink %>" data-target="#myModal" data-toggle="modal">
+					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal">
 						<div class="pos">
 							<h2><span><%= document.title %></span></h2>
 							<p><%- document.excerpt %></p>
