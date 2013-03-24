@@ -70,16 +70,6 @@
 		</div>
 	</footer>
 
-	<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Modal header</h3>
-		</div>
-		<div class="modal-body">
-	    <!-- content will be loaded here -->
-	  </div>
-	</div>
-
 	<!-- Scripts -->
 	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/underscore-min.js", "/js/libs/backbone-min.js", "/js/plugins.js", "/js/libs/bootstrap.min.js","/js/script.js"]).toHTML() %>
 </body>

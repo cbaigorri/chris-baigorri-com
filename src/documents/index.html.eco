@@ -34,7 +34,7 @@ dynamic: true
 		  
 		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
 				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal">
+					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
 						<div class="pos">
 							<h2><span><%= document.title %></span></h2>
 							<p><%- document.excerpt %></p>
@@ -49,7 +49,7 @@ dynamic: true
 		  
 		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
 				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal">
+					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
 						<div class="pos">
 							<h2><span><%= document.title %></span></h2>
 							<p><%- document.excerpt %></p>
@@ -65,5 +65,18 @@ dynamic: true
 	</div><!-- .span12 -->
 
 </div><!-- .row -->
+
+<div class="modal hide" id="postModal"></div>
+
+<script type='text/template' id='template-post-modal'>
+	<div class="container">
+		<div class="modal-header">
+	    <a class="close" data-dismiss="modal">&times;</a>
+	  </div>
+	  <div class="modal-body">
+	    <iframe id="modal-frame" src="" width="100%" height="100%"></iframe>
+	  </div>
+	</div>
+</script>
 
 
