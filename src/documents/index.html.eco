@@ -74,7 +74,7 @@ dynamic: true
 	    <a class="close" data-dismiss="modal">&times;</a>
 	  </div>
 	  <div class="modal-body">
-	    <iframe id="modal-frame" src="" width="100%" height="100%"></iframe>
+	    <iframe id="modal-frame" src=""></iframe>
 	  </div>
 	</div>
 </script>

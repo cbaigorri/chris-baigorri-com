@@ -71,6 +71,6 @@
 	</footer>
 
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/underscore-min.js", "/js/libs/backbone-min.js", "/js/plugins.js", "/js/libs/bootstrap.min.js","/js/script.js"]).toHTML() %>
+	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/underscore-min.js","/js/libs/backbone-min.js","/js/plugins.js","/js/libs/bootstrap.min.js","/js/script.js"]).toHTML() %>
 </body>
 </html>

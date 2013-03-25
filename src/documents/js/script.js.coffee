@@ -46,35 +46,20 @@ App.Classes.Views.Posts = Backbone.View.extend
     return
 
   post_Click: (e) ->
-    $this = $(e.currentTarget)
-    target = $this.attr 'data-target'
-    url = $this.attr 'href'
+    console.log 'post_Click'
+    url = $(e.currentTarget).attr 'href'
     if @currentModal is not undefined then @currentModal.destroyView()
-    @currentModal = new App.Classes.Views.Modal(
-      el: $('#postModal')
-    )
+    @currentModal = new App.Classes.Views.Modal el: $('#postModal')
     @currentModal.url = url
-    @currentModal.render()
-    console.log 'post_Click' 
-
-    # $(target).dialog
-    #   modal: true
-    #   resizable: false
-    #   draggable: false
-    #   width: 'auto'
-    #   height: 'auto'
-    #   open: (e, ui) ->
-    #     $('body').addClass 'modal-active'
-    #     $('#myModal .modal-body').load url, () ->
-    #       console.log  'Load was performed.'
-    #   close: (e, ui) ->
-    #     $('body').removeClass 'modal-active'
+    @currentModal.render() 
     false
 
 
 # Modal
 App.Classes.Views.Modal = Backbone.View.extend
-  
+  resizeInterval: undefined
+  lastHeight: undefined
+
   initialize: () ->
     @template = _.template $('#template-post-modal').html()
     console.log @url
@@ -89,7 +74,7 @@ App.Classes.Views.Modal = Backbone.View.extend
       $('.modal-body').empty()
       # _this.destroyView()
       return
-    return
+    @
 
   render: () ->
     console.log @url
@@ -99,10 +84,21 @@ App.Classes.Views.Modal = Backbone.View.extend
     # $('.modal-body').load @url, () ->
     #   console.log  'Load was performed.'
 
+    @resizeInterval = setInterval @updateContentHeight, 250
+
+    $('#modal-frame').load () ->
+      console.log '#modal-frame load'
+      # @updateContentHeight()
+
     $(@el).modal()
     @
 
+  updateContentHeight: () ->
+    $('#modal-frame').height $('#modal-frame').contents().height()
+
   destroyView: () ->
+    clearInterval @resizeInterval
+
     # unbind the view
     this.undelegateEvents()
 

@@ -35,20 +35,19 @@
 	</div><!-- >container -->
 
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/shCore.js","/js/libs/shAutoloader.js","/js/plugins.js","/js/script.js"], {defer:false}).toHTML() %>
+	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/underscore-min.js","/js/libs/backbone-min.js","/js/libs/shCore.js","/js/libs/shAutoloader.js","/js/plugins.js","/js/barebones.js"], {defer:false}).toHTML() %>
 
 
 	<script type="text/javascript" defer="defer">
 	function path() {
 	  var args = arguments,
-	      result = [];
-	       
-	  for(var i = 0; i < args.length; i++) {
+	      result = [];    
+	  for (var i = 0; i < args.length; i++) {
 	  	result.push(args[i].replace('@', '/js/libs/brushes/'));
 	  }
-	       
 	  return result
 	}
+
 	SyntaxHighlighter.autoloader.apply(null, path(
 	  'bash shell             @shBrushBash.js',
 	  'cpp c                  @shBrushCpp.js',
@@ -71,6 +70,6 @@
 	SyntaxHighlighter.all();
 	SyntaxHighlighter.defaults['toolbar'] = false;
 	</script>
-	
+
 </body>
 </html>
