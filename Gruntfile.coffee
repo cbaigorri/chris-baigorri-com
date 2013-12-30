@@ -51,7 +51,7 @@ module.exports = (grunt) ->
     copy:
       main:
         files: [
-          src: ['src/files/bower_components/modernizr/modernizr.js']
+          src: ['bower_components/modernizr/modernizr.js']
           dest: 'out/js/libs/modernizr.js'
         ]
     clean: [

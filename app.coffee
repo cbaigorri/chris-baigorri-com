@@ -10,6 +10,7 @@ server = http.createServer(app).listen 9779
 io = require('socket.io').listen server
 li = new linkedin '75f2f8091kx322', 'JXlKtLExWl1Jiyj9', 'http://localhost:9779'
 
+
 app.use express.bodyParser()
 app.use express.methodOverride()
 app.use express.cookieParser '237goats'
@@ -124,7 +125,7 @@ app.get '/liauth', (req, res, next) ->
   return
 
 # Linked In get data
-app.get 'lidata', (req, res, next) ->
+app.get '/lidata', (req, res, next) ->
   li.apiCall 'GET', '/people/~',
     token:
       oauth_token_secret: req.session.token.oauth_token_secret
@@ -132,6 +133,16 @@ app.get 'lidata', (req, res, next) ->
   , (error, result) ->
     console.log result
     return
+  return
+
+# Twitter data - need to run this once if you have a new setup
+app.get '/twitterdata', (req, res, next) ->
+  twittercb.getTweets (err, data) ->
+    if err then return console.log err
+    fs.writeFile 'out/tweets.json', JSON.stringify(data, null, 4), (err) ->
+      if err then console.log err
+      console.log 'JSON saved.'
+  res.redirect '/'
   return
 
 
