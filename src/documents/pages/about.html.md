@@ -1,6 +1,7 @@
 ---
 title: About
 layout: page
+permalink: /about
 tags: ['intro','page']
 pageOrder: 1
 date: 'Thu Nov 22 00:00:00 +0000 2012'

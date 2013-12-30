@@ -3,83 +3,113 @@ Author: Chris Baigorri
 ###
 
 # Namespace
-App = 
+App =
   Classes:
+    Router: {}
     Views: {}
     Models: {}
     Collections: {}
+  Router: {}
   Views: {}
   Models: {}
   Collections: {}
 
 
-# Navbar 
+# Router
+App.Classes.Router.AppRouter = Backbone.Router.extend
+  currentModal: undefined
+  routes:
+    'about': 'pageRenderer'
+    'blog/:slug': 'blogRenderer'
+
+  pageRenderer: () ->
+    @renderer '/about'
+
+  blogRenderer: (slug) ->
+    @renderer '/blog/' + slug
+
+  renderer: (url) ->
+    if @currentModal is not undefined then @currentModal.destroyView()
+
+    @currentModal = new App.Classes.Views.Modal
+      el: $('#postModal')
+      url: url
+
+# Navbar
 App.Classes.Views.NavBar = Backbone.View.extend
   events:
-    'click .nav a': 'filter_Click'
+    'click ul li a': 'filter_Click'
 
   initialize: () ->
-    return
+    @
 
   filter_Click: (e) ->
     $this = $(e.currentTarget)
-    $el = $(this.el)
+    $el = this.$el
     if $this.closest('li').hasClass 'active'
-      $('.nav li', $el).removeClass 'active'
+      $('li', $el).removeClass 'active'
       selector = '*'
-    else 
-      $('.nav li', $el).removeClass 'active'
+    else
+      $('li', $el).removeClass 'active'
       $this.closest('li').addClass 'active'
       selector = $this.attr 'data-filter'
-    
-    $isotopeContainer.isotope filter: selector
-    false
 
+    App.Views.Masonry.$el.isotope filter: selector
+    false
 
 # Posts
 App.Classes.Views.Posts = Backbone.View.extend
-  currentModal: undefined
   events:
     'click a.modal2': 'post_Click'
 
   initialize: () ->
-    return
+    @
 
   post_Click: (e) ->
-    console.log 'post_Click'
     url = $(e.currentTarget).attr 'href'
-    if @currentModal is not undefined then @currentModal.destroyView()
-    @currentModal = new App.Classes.Views.Modal el: $('#postModal')
-    @currentModal.url = url
-    @currentModal.render() 
+    App.Router.AppRouter.navigate url, trigger: true
     false
-
 
 # Modal
 App.Classes.Views.Modal = Backbone.View.extend
   resizeInterval: undefined
   lastHeight: undefined
 
-  initialize: () ->
+  initialize: (options) ->
+    @options = options || {}
+    console.log @options
     @template = _.template $('#template-post-modal').html()
-    console.log @url
     _this = @
-    $(@el).on 'show', () ->
+
+    @$el.on 'show', () ->
       $('body').addClass('modal-open')
       return
-    $(@el).on 'hide', () ->
+
+    @$el.on 'hide', () ->
       $('body').removeClass('modal-open')
       return
-    $(@el).on 'hidden', () ->
+
+    @$el.on 'hidden', () ->
       $('.modal-body').empty()
-      # _this.destroyView()
       return
     @
 
   render: () ->
+    console.log @options.url
+    @$el.html @template()
+
+    $('.zoomScroll').show()
+
+    # $('#modal-frame').attr('src', @url)
+
+    # @resizeInterval = setInterval @updateContentHeight, 250
+
+    @
+
+  renderOld: () ->
     console.log @url
     $(@el).html @template()
-    
+
     $('#modal-frame').attr('src', @url)
     # $('.modal-body').load @url, () ->
     #   console.log  'Load was performed.'
@@ -112,28 +142,48 @@ App.Classes.Views.Modal = Backbone.View.extend
   close_Click: (e) ->
     false
 
+# Masonry
+App.Classes.Views.Masonry = Backbone.View.extend
+  initialize: ()->
+    @.$el.isotope
+      # options
+      layoutMode: 'masonry'
+      itemSelector: '.box'
+      stamp: '.stamp'
+      masonry:
+        columnWidth: @.$el.find('.grid-sizer')[0]
+        gutter: 10
+      getSortData:
+        number: ($elem) ->
+          return parseInt $($elem).attr('data-time') , 10
+      sortBy: 'number'
+      sortAscending: false
+
+    @.$el.isotope 'on', 'layoutComplete', () ->
+      return true
+
+    return
+
 
 # Dom Ready
 $ ->
 
-  # Isotope
-  $isotopeContainer = $('#isotopeContainer');
-  $isotopeContainer.isotope
-    # options
-    itemSelector: '.box'
-    animationEngine: 'best-available'
-    masonry:
-      columnWidth: 120
-    getSortData:
-      number: ($elem) ->
-        return parseInt $elem.attr('data-time') , 10
-    sortBy: 'number'
-    sortAscending: false
-  
   # Navbar
   App.Views.NavBar = new App.Classes.Views.NavBar
-    el: $('.navbar')
+    el: $('.nav-filters')
 
   # Posts
   App.Views.Posts = new App.Classes.Views.Posts
     el: $('.post')
+
+  # Router
+  App.Router.AppRouter = new App.Classes.Router.AppRouter()
+  Backbone.history.start
+    pushState: true
+
+# Doc Ready
+window.onload = ()->
+  # Isotope
+  App.Views.Masonry = new App.Classes.Views.Masonry
+    el: $('#isotopeContainer')
+

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title><%= @getPreparedTitle() %></title>
-	<meta name="description" content="<%= @getPreparedDescription() %>" />
-	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
-	<meta name="author" content="<%= @site.author or '' %>" />
+  <title><%= @getPreparedTitle() %></title>
+  <meta name="description" content="<%= @getPreparedDescription() %>" />
+  <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+  <meta name="author" content="<%= @site.author or '' %>" />
 
-	<!-- Output DocPad produced meta elements -->
-	<%- @getBlock('meta').toHTML() %>
+  <!-- Output DocPad produced meta elements -->
+  <%- @getBlock('meta').toHTML() %>
 
-	<meta name="viewport" content="width=device-width" />
-
+  <meta name="viewport" content="width=device-width" />
 
   <link rel="shortcut icon" href="ico/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
@@ -22,55 +21,61 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 
-	<%- @getBlock('scripts').add(["/js/libs/modernizr.js"]).toHTML() %>
+  <%- @getBlock('scripts').add(["/js/libs/modernizr.js"]).toHTML() %>
 
-	<!-- Styles -->
-	<%- @getBlock('styles').add(["/css/style.css", "/css/responsive.css"]).toHTML() %>
+  <!-- Styles -->
+  <%- @getBlock('styles').add(["/css/style.css"]).toHTML() %>
 </head>
 <body>
 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="/">
-					<span>Chris Baigorri</span>
-				</a>
-				<ul class="nav">
-					<li class="">
-						<a href="#" data-filter=".post">
-							<span>Posts</span>
-						</a>
-					</li>
-					<li class="">
-						<a href="#" data-filter=".tweet">
-							<span>Tweets</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="jumbotron bordered drop-shadow curved curved-hz-1">
+    <div class="container">
+      <div class="pos">
+        <h1>Hi My name is Chris Baigorri</h1>
+        <p class="lead">I have been a professionally employed web developer since 1999, working on award winning projects of all sizes; from globally recognized enterprise level to local basic one page sites. I am passionate about my craft and continue to hone my skills in HTML5, CSS3, JavaScript and PHP while learning and experimenting with new technologies in my spare time.</p>
+      </div>
 
-	<div class="container">
-		<section id="content" class="content">
-			<%- @content %>
-		</section>
-	</div><!-- >container -->
+    </div>
+  </div><!-- .hero-unit -->
 
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="span6">
-					<p>&copy; Chris Baigorri 2012</p>
-				</div>
-				<div class="span6">
-					<p class="pull-right">This website was last updated at <%= @site.date.toISOString() %></p>
-				</div>
-			</div>
-		</div>
-	</footer>
+  <div class="container">
 
-	<!-- Scripts -->
-	<%- @getBlock('scripts').add(["/js/libs/jquery-1.8.2.min.js","/js/libs/underscore-min.js","/js/libs/backbone-min.js","/js/plugins.js","/js/libs/bootstrap.min.js","/js/script.js"]).toHTML() %>
+    <div class="nav-filters">
+      <ul class="list-unstyled list-inline">
+        <li>
+          <a href="#" data-filter=".post">
+            <i class="fa fa-pencil"></i>
+            <span>Posts</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-filter=".tweet">
+            <i class="fa fa-twitter"></i>
+            <span>Tweets</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <section id="content" class="content">
+      <%- @content %>
+    </section>
+  </div><!-- >container -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; Chris Baigorri 2012</p>
+        </div>
+        <div class="col-md-6">
+          <p class="pull-right">This website was last updated at <%= @site.date.toISOString() %></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <%- @getBlock('scripts').add(["/js/scripts.min.js"]).toHTML() %>
 </body>
 </html>

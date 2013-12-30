@@ -1,82 +1,73 @@
---- 
+---
 layout: 'default'
 title: 'Home'
 dynamic: true
 ---
 
-<div class="hero-unit bordered drop-shadow curved curved-hz-1">
-	<div class="pos">
-		<h1>Hi! My name is Chris Baigorri.</h1>
-		<p>I have been a professionally employed web developer since 1999, working on award winning projects of all sizes; from globally recognized enterprise level to local basic one page sites. I am passionate about my craft and continue to hone my skills in HTML5, CSS3, JavaScript and PHP while learning and experimenting with new technologies in my spare time.</p>
-	</div>
-</div><!-- .hero-unit -->
-
 <div class="row">
 
-	<div class="span12">
+  <div class="col-md-12 col-lg-12">
 
-		<div id="isotopeContainer" class="transitions-enabled masonry">
+    <div id="isotopeContainer">
 
-			<% for val, idx in @tweetData: %>
+      <% for val, idx in @tweetData: %>
 
-			<div class="box tweet" data-time="<%= @machineTime val.created_at %>">
-				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<div class="pos">
-						<p><%- @atify(@linkify val.text) %></p>
-						<span class="created-at"><%= @relativeTime val.created_at %></span>
-					</div>
-				</div>
-			</div>
+      <div class="box tweet grid-sizer" data-time="<%= @machineTime val.created_at %>">
+        <div class="box-inner bordered drop-shadow curved curved-hz-1">
+          <div class="pos">
+            <p><%- @atify(@linkify val.text) %></p>
+            <span class="created-at"><%= @relativeTime val.created_at %></span>
+          </div>
+        </div>
+      </div>
 
-			<% end %>
+      <% end %>
 
-			<% for document in @getCollection('posts').toJSON(): %>
-		  
-		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
-				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
-						<div class="pos">
-							<h2><span><%= document.title %></span></h2>
-							<p><%- document.excerpt %></p>
-						</div>
-					</a>
-				</div>
-			</div>
-			
-			<% end %>
+      <% for document in @getCollection('posts').toJSON(): %>
 
-			<% for document in @getCollection('pages').toJSON(): %>
-		  
-		  <div class="box col2 post" data-time="<%= @machineTime document.date %>">
-				<div class="box-inner bordered drop-shadow curved curved-hz-1">
-					<a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
-						<div class="pos">
-							<h2><span><%= document.title %></span></h2>
-							<p><%- document.excerpt %></p>
-						</div>
-					</a>
-				</div>
-			</div>
-			
-			<% end %>
+      <div class="box col2 post" data-time="<%= @machineTime document.date %>">
+        <div class="box-inner bordered drop-shadow curved curved-hz-1">
+          <a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
+            <div class="pos">
+              <h2><span><%= document.title %></span></h2>
+              <p><%- document.excerpt %></p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-		</div><!-- #masonryContainer -->
+      <% end %>
 
-	</div><!-- .span12 -->
+      <% for document in @getCollection('pages').toJSON(): %>
+
+      <div class="box col2 post stamp" data-time="<%= @machineTime document.date %>">
+        <div class="box-inner bordered drop-shadow curved curved-hz-1">
+          <a href="<%= document.permalink %>" data-target="#myModal" role="button" class="modal2">
+            <div class="pos">
+              <h2><span><%= document.title %></span></h2>
+              <p><%- document.excerpt %></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div><!-- #masonryContainer -->
+
+  </div><!-- .span12 -->
 
 </div><!-- .row -->
 
-<div class="modal hide" id="postModal"></div>
+<div class="zoomScroll hide"></div>
 
 <script type='text/template' id='template-post-modal'>
-	<div class="container">
-		<div class="modal-header">
-	    <a class="close" data-dismiss="modal">&times;</a>
-	  </div>
-	  <div class="modal-body">
-	    <iframe id="modal-frame" src=""></iframe>
-	  </div>
-	</div>
+  <div class="container">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">&times;</a>
+    </div>
+    <div class="modal-body">
+      <iframe id="modal-frame" src=""></iframe>
+    </div>
+  </div>
 </script>
-
-

@@ -1,0 +1,14 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~2.0.3",
+    "bootstrap": "~3.0.3",
+    "underscore": "~1.5.2",
+    "backbone": "~1.1.0",
+    "isotope": "~2.0.0",
+    "jquery.lazyload": "~1.9.1"
+  },
+  "devDependencies": {}
+}
