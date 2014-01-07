@@ -14,12 +14,23 @@ body {
   }
 }
 
+#content {
+  //.user-select(none);
+}
+
 .jumbotron {
+  .user-select(none);
   margin-bottom: 20px;
 }
 
 /* Modals
 ---------------------------------*/
+
+#postModal {
+  iframe {
+    width: 100%;
+  }
+}
 
 .zoomScroll {
   top: 0;
@@ -158,6 +169,7 @@ body {
 ---------------------------------*/
 
 #isotopeContainer  {
+  .user-select(none);
   .box, .grid-sizer {
     width: 100%;
     margin-bottom: 15px;
@@ -212,6 +224,7 @@ body {
 ---------------------------------*/
 
 .nav-filters {
+  .user-select(none);
   ul {
     margin-bottom: 20px;
     li {

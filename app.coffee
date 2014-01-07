@@ -15,48 +15,8 @@ app.use express.bodyParser()
 app.use express.methodOverride()
 app.use express.cookieParser '237goats'
 app.use express.session()
+app.use express.static(__dirname + '/out')
 app.use app.router
-
-# Errors
-###
-app.use (req, res, next) ->
-  res.status 404
-
-  # respond with html page
-  if req.accepts 'html'
-    res.render '404', url: req.url
-    return
-
-  # respond with json
-  if req.accepts 'json'
-    res.send error: 'Not found'
-    return
-
-  # default to plain-text. send()
-  res.type('txt').send('Not found')
-###
-
-###
- error-handling middleware, take the same form
- as regular middleware, however they require an
- arity of 4, aka the signature (err, req, res, next).
- when connect has an error, it will invoke ONLY error-handling
- middleware.
-
- If we were to next() here any remaining non-error-handling
- middleware would then be executed, or if we next(err) to
- continue passing the error, only error-handling middleware
- would remain being executed, however here
- we simply respond with an error page.
-
-
-app.use (err, req, res, next) ->
-  # we may use properties of the error object
-  # here and next(err) appropriately, or if
-  # we possibly recovered from the error, simply next().
-  res.status err.status || 500
-  res.render '500', error: err
-###
 
 
 # all environments
@@ -65,8 +25,6 @@ app.configure ()->
   app.set 'views', __dirname + '/views'
   app.set 'view engine', 'jade'
   app.set 'view options', layout: true
-
-  app.use express.static(__dirname + '/out')
 
 # development only
 app.configure 'development', () ->
@@ -86,22 +44,12 @@ docpadInstanceConfiguration =
 
 docpadInstance = require('docpad').createInstance docpadInstanceConfiguration, (err) ->
   if err then return console.log err.stack
-  docpad.action 'generate server watch', (err) ->
+  docpadInstance.action 'generate server watch', (err) ->
     if err then console.log err.stack
-  @
+  return
 
 # -----------------------------
 # Router Functions
-
-# Homepage
-app.get '/', (req, res, next) ->
-  jsonContents = fs.readFileSync 'out/tweets.json', 'utf8'
-  tweets = JSON.parse jsonContents
-  req.templateData =
-    customVar : 'some custom variable'
-    tweetData : tweets
-  document = docpadInstance.getFile relativePath:'index.html.eco'
-  docpadInstance.serveDocument {document, req, res, next}
 
 # About
 app.get '/ajax/about', (req, res, next) ->
@@ -145,6 +93,15 @@ app.get '/twitterdata', (req, res, next) ->
   res.redirect '/'
   return
 
+# Homepage
+app.get '*', (req, res, next) ->
+  jsonContents = fs.readFileSync 'out/tweets.json', 'utf8'
+  tweets = JSON.parse jsonContents
+  req.templateData =
+    customVar : 'some custom variable'
+    tweetData : tweets
+  document = docpadInstance.getFile relativePath:'index.html.eco'
+  docpadInstance.serveDocument {document, req, res, next}
 
 
 String.prototype.linkify = () ->

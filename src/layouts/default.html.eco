@@ -38,6 +38,10 @@
     </div>
   </div><!-- .hero-unit -->
 
+  <div id="postModal">
+  post modal
+  </div>
+
   <div class="container">
 
     <div class="nav-filters">
@@ -77,5 +81,17 @@
 
   <!-- Scripts -->
   <%- @getBlock('scripts').add(["/js/scripts.min.js"]).toHTML() %>
+
+  <script type='text/template' id='template-post-modal'>
+    <div class="container">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+      </div>
+      <div class="modal-body">
+        <iframe id="modal-frame" src=""></iframe>
+      </div>
+    </div>
+  </script>
+
 </body>
 </html>

@@ -77,7 +77,6 @@ App.Classes.Views.Modal = Backbone.View.extend
 
   initialize: (options) ->
     @options = options || {}
-    console.log @options
     @template = _.template $('#template-post-modal').html()
     _this = @
 
@@ -92,35 +91,20 @@ App.Classes.Views.Modal = Backbone.View.extend
     @$el.on 'hidden', () ->
       $('.modal-body').empty()
       return
+
+    @render()
     @
 
   render: () ->
-    console.log @options.url
+    console.log @options.url, 'render'
+    _this = @
     @$el.html @template()
 
     $('.zoomScroll').show()
 
-    # $('#modal-frame').attr('src', @url)
-
-    # @resizeInterval = setInterval @updateContentHeight, 250
-
-    @
-
-  renderOld: () ->
-    console.log @url
-    $(@el).html @template()
-
-    $('#modal-frame').attr('src', @url)
-    # $('.modal-body').load @url, () ->
-    #   console.log  'Load was performed.'
-
+    $('#modal-frame').attr 'src', '/ajax' + @options.url
+    @updateContentHeight()
     @resizeInterval = setInterval @updateContentHeight, 250
-
-    $('#modal-frame').load () ->
-      console.log '#modal-frame load'
-      # @updateContentHeight()
-
-    $(@el).modal()
     @
 
   updateContentHeight: () ->

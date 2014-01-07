@@ -1,9 +1,15 @@
 # Requires
 moment = require('moment')
 
+path = require('path')
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
-docpadConfig = 
+docpadConfig =
+
+  watchOptions: preferredMethods: ['watchFile','watch']
+
+  ignorePaths: [path.join(__dirname, 'src', 'files', 'get')]
 
   # Template Data
   # =============
@@ -50,11 +56,11 @@ docpadConfig =
     # ----------------
 
     # Format the passed date, by default format like: Thursday, November 29 2012 3:53 PM
-    formatDate: (date, format='LLLL') -> 
+    formatDate: (date, format='LLLL') ->
       moment(date).format(format)
 
     # Format the passed date, by default format like: Thursday, November 29 2012 3:53 PM
-    formatDateShort: (date, format='M-D-YYYY') -> 
+    formatDateShort: (date, format='M-D-YYYY') ->
       moment(date).format(format)
 
     # Get the prepared site/document title

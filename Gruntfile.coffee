@@ -5,6 +5,18 @@ module.exports = (grunt) ->
       options:
         separator: ';'
         stripBanners: true
+      barebones:
+        src:[
+          "bower_components/jquery/jquery.min.js"
+          "bower_components/jquery/jquery-migrate.min.js"
+          "bower_components/underscore/underscore.js"
+          "bower_components/backbone/backbone.js"
+          "bower_components/jquery.lazyload/jquery.lazyload.min.js"
+          "bower_components/momentjs/moment.js"
+          "src/files/js/libs/log.js"
+          "out/js/barebones.js"
+        ]
+        dest: 'out/js/barebones.min.js'
       dist:
         src:[
           "bower_components/jquery/jquery.min.js"
