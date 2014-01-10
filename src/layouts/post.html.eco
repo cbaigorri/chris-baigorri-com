@@ -5,23 +5,23 @@ layout: barebones
 <article id="post" class="post">
   <h1><%= @document.title %></h1>
   <div class="byline">
-  <address class="author">By <%= @document.author %> on <time pubdate datetime="<%= @document.date %>" title="<%= @document.date %>"><%= @formatDate(@document.date) %></time></address>
+  <address class="author">By <%= @document.author %> on <time pubdate datetime="<%= @document.date %>" title="<%= @document.date %>"><%= @formatDate(@document.date, 'l') %></time></address>
   </div>
   <div class="post-content"><%- @content %></div>
 </article>
 
-<footer>
-  <% if  @document.relatedDocuments and @document.relatedDocuments.length: %>
-  <section id="related">
-    <h3>Related Posts</h3>
-    <nav class="linklist">
-      <% for document in @document.relatedDocuments: %>
-        <li><span><%= document.date.toShortDateString() %></span>
-        &raquo;
-        <a href="<%= document.url %>"><%= document.title %></a></li>
-      <% end %>
-    </nav>
-  </section>
-  <% end %>
-</footer>
+<% if  @document.relatedDocuments and @document.relatedDocuments.length: %>
+  <footer>
+    <section id="related">
+      <h3>Related Posts</h3>
+      <nav class="linklist">
+        <% for document in @document.relatedDocuments: %>
+          <li><span><%= document.date.toShortDateString() %></span>
+          &raquo;
+          <a href="<%= document.url %>"><%= document.title %></a></li>
+        <% end %>
+      </nav>
+    </section>
+  </footer>
+<% end %>
 

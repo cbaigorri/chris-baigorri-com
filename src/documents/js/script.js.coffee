@@ -32,7 +32,7 @@ App.Classes.Router.AppRouter = Backbone.Router.extend
     if @currentModal is not undefined then @currentModal.destroyView()
 
     @currentModal = new App.Classes.Views.Modal
-      el: $('#postModal')
+      el: $('#articleModal')
       url: url
 
 # Navbar
@@ -73,25 +73,10 @@ App.Classes.Views.Posts = Backbone.View.extend
 # Modal
 App.Classes.Views.Modal = Backbone.View.extend
   resizeInterval: undefined
-  lastHeight: undefined
 
   initialize: (options) ->
     @options = options || {}
-    @template = _.template $('#template-post-modal').html()
-    _this = @
-
-    @$el.on 'show', () ->
-      $('body').addClass('modal-open')
-      return
-
-    @$el.on 'hide', () ->
-      $('body').removeClass('modal-open')
-      return
-
-    @$el.on 'hidden', () ->
-      $('.modal-body').empty()
-      return
-
+    @template = _.template $('#template-article-entry').html()
     @render()
     @
 
@@ -100,15 +85,18 @@ App.Classes.Views.Modal = Backbone.View.extend
     _this = @
     @$el.html @template()
 
-    $('.zoomScroll').show()
-
-    $('#modal-frame').attr 'src', '/ajax' + @options.url
+    $('#article-frame').attr 'src', '/ajax' + @options.url
     @updateContentHeight()
     @resizeInterval = setInterval @updateContentHeight, 250
+    $('html, body').animate
+      scrollTop: $('#articleModal').offset().top, 600
     @
 
   updateContentHeight: () ->
-    $('#modal-frame').height $('#modal-frame').contents().height()
+    try
+      $('#article-frame').height $('#article-frame').contents().find('#content').outerHeight(true)+50
+    catch error
+      console.log 'error', error
 
   destroyView: () ->
     clearInterval @resizeInterval
@@ -116,15 +104,12 @@ App.Classes.Views.Modal = Backbone.View.extend
     # unbind the view
     this.undelegateEvents()
 
-    this.$el.removeData().unbind()
+    # this.$el.removeData().unbind()
 
     # Remove view from DOM
     this.remove()
     Backbone.View.prototype.remove.call(this)
     return
-
-  close_Click: (e) ->
-    false
 
 # Masonry
 App.Classes.Views.Masonry = Backbone.View.extend

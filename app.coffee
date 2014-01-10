@@ -97,8 +97,10 @@ app.get '/twitterdata', (req, res, next) ->
 app.get '*', (req, res, next) ->
   jsonContents = fs.readFileSync 'out/tweets.json', 'utf8'
   tweets = JSON.parse jsonContents
+  console.log req.params
   req.templateData =
     customVar : 'some custom variable'
+    route : req.params
     tweetData : tweets
   document = docpadInstance.getFile relativePath:'index.html.eco'
   docpadInstance.serveDocument {document, req, res, next}
